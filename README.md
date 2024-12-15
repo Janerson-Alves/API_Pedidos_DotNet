@@ -281,6 +281,34 @@ O `PedidoController` lida com as operações de CRUD (Criar, Ler, Atualizar, Del
 Ao criar um pedido, a resposta será um objeto do tipo `PedidoDTO` com o ID do pedido, nome, endereço, telefone, e-mail, lista de produtos (vazia inicialmente) e o status do pedido.
 
 
+### **Configuração do Banco de Dados**
+
+Este projeto usa o **SQL Server** como banco de dados. A configuração de conexão com o banco de dados é armazenada no arquivo `appsettings.json`.
+
+#### **Configuração no appsettings.json**
+
+No arquivo `appsettings.json`, a string de conexão com o banco de dados é definida na seção `ConnectionStrings`:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "ConexaoPadrao": "Server=localhost\\SQLEXPRESS; Initial Catalog=Pedido; Integrated Security=True; TrustServerCertificate=True"
+  }
+}
+```
+
+- **Server**: Indica o servidor onde o SQL Server está rodando. Neste caso, localhost\SQLEXPRESS significa que estamos usando uma instância local do SQL Server chamada SQLEXPRESS.
+- **Initial Catalog**: O nome do banco de dados, neste caso, Pedido.
+- **Integrated Security**: A autenticação é feita usando as credenciais do Windows.
+- **TrustServerCertificate**: Permite a confiança no certificado do servidor de banco de dados, útil em ambientes de desenvolvimento.
+
 ## Contribuição
 
 Sinta-se à vontade para abrir issues e enviar pull requests para melhorias neste projeto!
